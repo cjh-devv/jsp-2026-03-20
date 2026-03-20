@@ -31,6 +31,15 @@
 		<div>
 			<label>나이 : <input name ="age"></label>
 		</div>
+		<div>
+			취미 : 
+			<label><input type="checkbox" name ="hobby" value="코딩">코딩</label>
+			<label><input type="checkbox" name ="hobby" value="유투브">유투브 감상</label>
+			<label><input type="checkbox" name ="hobby" value="독서">독서</label>
+			<label><input type="checkbox" name ="hobby" value="운동">운동</label>
+			<label><input type="checkbox" name ="hobby" value="게임">게임</label>
+			
+		</div>
 		<!-- 써밋은 누르면 무조건 액션을 실행함 근데 써밋을 하긴 해야 정보를 제출가능-->
 		<div>
 			<!-- 웬만하면 폼태그에선 인풋 버튼으로 버튼만들기 -->

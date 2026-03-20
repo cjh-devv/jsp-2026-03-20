@@ -13,7 +13,13 @@
 		String pwd2 = request.getParameter("pwd2");
 		String name = request.getParameter("name");
 		String age = request.getParameter("age");
-		 %>
+		
+		String[] hobby = request.getParameterValues("hobby");
+		
+		for(int i=0; i<hobby.length;i++){
+			out.println(hobby[i]);
+		}
+	%>
 	<div> 아이디 : <%= userId %></div>
 	<div> 이름 : <%= name %></div>
 </body>
