@@ -18,7 +18,7 @@
 	
 	<!-- post는 데이터를 숨겨서 보낸다. -->
 	
-	<!-- 실습할때는 데이터 확인을 위해 get을 주로 쓸래요  name속성이 필수다-->
+	<!-- 실습할때는 데이터 확인을 위해 get(디폴트)을 주로 쓸래요  name속성이 필수다 폼태그객체에 쉽게 접근하기위해-->
 	<form action="9_LoginResult.jsp" method="get">
 		<div>
 			<label>아이디 : <input name="userId"></label>
