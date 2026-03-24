@@ -26,6 +26,7 @@
 	let result = <%= result%>
 	if(result>0){
 		alert("입력성공!");
+		response.sendRedirect("stu-list.jsp");
 	} else{
 		alert("입력실패!");
 	}

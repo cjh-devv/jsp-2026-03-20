@@ -16,7 +16,7 @@
 				text-align : center;
 			}
 	th {
-		width : 50px;
+		width : 70px;
 		background-color: #eee;
 	}
 	td {
@@ -27,6 +27,16 @@
 	}
 	.btn-area{
 		margin-top : 5px;
+	}
+	.line{
+		margin: 30px 0px;
+		border-bottom: 1px solid #ccc;
+	}
+	.comment-area{
+		margin-top: 20px;
+	}
+	.comment-area td{
+		width: 600px;
 	}
 </style>
 </head>
@@ -90,6 +100,32 @@
 		%>
 			<input type="button" value="되돌아가기">
 		</div>
+		<div class="line">
+		</div>
+		<div class="comment-area">
+			<table>
+			<%
+				sql = "SELECT * FROM TBL_COMMENT WHERE BOARDNO =" + boardNo;
+				rs = stmt.executeQuery(sql);
+				while(rs.next()){
+			%>		
+				<tr>
+					<th><%= rs.getString("USERID") %></th>
+					<td><%= rs.getString("CONTENTS") %></td>
+				</tr>
+			<%	}
+			%>
+			</table>
+			<br>
+			<table>
+				<tr>
+					<th>댓글 등록</th>
+					<td style="width : 470px; border-right : none">
+						<textarea name="contents" cols="75" rows="5"></textarea></td>
+					<td style="width : 50px; border-left : none"><input type="button" value="등록" onclick="fnComentAdd()"></td>
+				</tr>	
+			</table>
+		</div>
 	</form>
 </body>
 </html>
@@ -108,5 +144,9 @@
 		<%-- console.log(<%= boardNo %>);            자바에서도 표현식이 가능?
 		location.href = "board-remove.jsp?boardNo= " + boardNo; --%>
 	}
-
+	function fnComentAdd(){
+		let form = document.form;
+		form.action = "board-comment-add.jsp";       //action의 주소를 바꿀 수 있다!! 
+		form.submit();
+	}
 </script>

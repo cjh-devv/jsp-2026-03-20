@@ -81,7 +81,8 @@
 				<td><%= rs.getString("CNT") %></td>
 				<td><%= rs.getString("CDATE") %></td>
 	<%
-		String userId = rs.getString("USERID"); //센스!
+		String userId = rs.getString("USERID"); 
+//센스! 대신 rs객체 쓸라면 일단 rs.next()해서 첫줄로 내려야 컬럼의 값을 인식함 => 일단 rs.next()가 있어야!
 		if(sessionId.equals(userId) || sessionRole.equals("A")){
 	%>						
 				<td><input type="button" value="삭제" onclick="fnRemove(<%= rs.getString("BOARDNO") %>)"></td>

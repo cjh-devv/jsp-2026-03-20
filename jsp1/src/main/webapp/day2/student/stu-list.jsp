@@ -38,7 +38,7 @@
 		<!-- 셀렉트 누를때마다 주소는 kind=기계 이거면서 전체가 선택된채로 되서 -->
 		<!-- 이때 다른 옵션 누르고 다시 전체 눌러도 전체목록이 안뜸 -->
 		<!-- 이걸 막기 위해서 <%= kind.equals("기계") ? "selected" : "" %>이거 하라고 하는거 -->
-		<!-- 이래야 주소의 kind기계  옵션 기계  선택되서 전체 누르면 전체목록 뜯ㅁ -->
+		<!-- 이래야 주소의 kind기계  옵션 기계  선택되서 전체 누르면 전체목록 뜸 -->
 			<option value ="">:: 전체 ::</option>
 			<option value ="기계" <%= kind.equals("기계") ? "selected" : "" %>>기계</option>
 			<option value ="전기전자" <%= kind.equals("전기전자") ? "selected" : "" %>>전기전자</option>
