@@ -8,26 +8,24 @@
 </head>
 <body>
 	<%@ include file="../../db.jsp" %>
-	<%  
+	<%
 		String stuNo = request.getParameter("stuNo");
 		String stuName = request.getParameter("stuName");
 		String stuDept = request.getParameter("stuDept");
 		String stuGrade = request.getParameter("stuGrade");
 		
-		String sql = String.format("INSERT INTO STUDENT"
-			 + "(STU_NO, STU_NAME, STU_DEPT, STU_GRADE)" 
-				+ " VALUES(%s, %s, %s, %s)", stuNo, stuName, stuDept, stuGrade);
-		
+		String sql = "UPDATE STUDENT SET "
+					+ "STU_NAME = '" + stuName + "',"
+					+ "STU_DEPT = '" + stuDept + "',"	
+					+ "STU_GRADE = '" + stuGrade + "' "
+					+ "WHERE STU_NO = " + stuNo;	//이거 변수 숫자면 ''안붙여도 되고 붙여도 된다는데
 		int result = stmt.executeUpdate(sql);
+		if(result > 0){
+			response.sendRedirect("stu-list.jsp");
+		} else {
+			out.println("에러 발생!");
+		}
+		
 	%>
 </body>
 </html>
-<script>
-	let result = <%= result%>
-	if(result>0){
-		alert("입력성공!");
-	} else{
-		alert("입력실패!");
-	}
-	location.href="stu-list.jsp"
-</script>

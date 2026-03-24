@@ -8,16 +8,19 @@
 </head>
 <body>
 	<%@ include file="../../db.jsp" %>
-	<% 
-		String boardNo = request.getParameter("boardNo");
-		String sql = "DELETE FROM TBL_BOARD WHERE BOARDNO = " + boardNo;
+	<%
+		String stuNo = request.getParameter("stuNo");
+		String sql = "DELETE FROM STUDENT WHERE STU_NO = " + stuNo;
+		
 		int result = stmt.executeUpdate(sql);
-		if(result>0){
-			out.println("삭제 완료!");
-		}else{
+		if(result > 0){
+			out.println("삭제 됨!");
+	%>
+			<a href="stu-list.jsp"><button>리스트로</button></a>
+	<%		
+		} else {
 			out.println("삭제 실패!");
 		}
 	%>
-	<a href="board-list.jsp"><button>되돌아가기</button></a>
 </body>
 </html>
