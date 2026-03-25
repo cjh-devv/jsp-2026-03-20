@@ -10,7 +10,9 @@
 	<form action="sign-up-result.jsp" name="signUp" method="get"> 
 		<div>
 			<label>아이디 : <input name="userId"></label>
+			<input type="button" value="중복체크" onclick="fnCheck()">
 		</div>
+		
 		<div>
 			<label>비밀번호 : <input name ="pwd1" type="password"></label>
 		</div>
@@ -42,6 +44,11 @@
 			info.userId.focus();
 			return;
 		}
+		let addFlg = "N";
+		if(addFlg == "N"){
+			alert("중복체크후 추가해주세요.");
+			return;
+		}
 		if(info.pwd1.value.length == 0) {
 			alert("비번 채워!");
 			info.pwd1.focus();
@@ -64,5 +71,16 @@
 		}
 		info.submit();
 	}
-
+	function fnCheck(){
+		let form = document.signUp;
+		let userId = form.userId.value;
+		window.open("sign-up-check.jsp?userId=" + userId,"check", "width=400, height=400");
+	}
+	function fnReturn(flg){
+		let form = document.signUp;
+		if(flg == "Y"){
+			form.userId.readOnly = true;
+			addFlg = flg;
+		}
+	}
 </script>

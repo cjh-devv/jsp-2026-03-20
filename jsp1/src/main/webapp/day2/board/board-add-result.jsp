@@ -19,7 +19,7 @@
 		
 		String sql = "INSERT INTO TBL_BOARD VALUES("
 				+ "BOARD_SEQ.NEXTVAL, "
-				+ "'sessionId', "
+				+ "'" + sessionId + "', "
 				+ "'" + title + "', "
 				+ "'" + contents + "', "
 				+ "0, "
